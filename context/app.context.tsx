@@ -1,5 +1,5 @@
 import React, {createContext, ReactNode, useState} from "react";
-type UserData = {
+export type UserData = {
 	user: {
 		id: number;
 		name: string;
@@ -14,6 +14,8 @@ export type AppContextType = {
 	setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
 	isOpenModalAuth: boolean;
 	setIsOpenModalAuth: React.Dispatch<React.SetStateAction<boolean>>;
+	isOpenSettings: boolean;
+	setIsOpenSettings: React.Dispatch<React.SetStateAction<boolean>>;
 	userData: UserData;
 	setUserData: React.Dispatch<React.SetStateAction<UserData>>
 };
@@ -25,6 +27,8 @@ export const AppContext = createContext<AppContextType>({
 	setIsOpenModalAuth: () => {},
 	userData: {} as UserData,
 	setUserData: () => {},
+	isOpenSettings:  false,
+	setIsOpenSettings: () => {},
 });
 
 type AppContextProviderProps = {
@@ -34,9 +38,10 @@ type AppContextProviderProps = {
 export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [isOpenModalAuth, setIsOpenModalAuth] = useState(false);
+	const [isOpenSettings, setIsOpenSettings] = useState(false);
 	const [userData, setUserData] = useState<UserData>({} as UserData);
 	return (
-		<AppContext.Provider value={{ isAuthenticated, setIsAuthenticated , isOpenModalAuth, setIsOpenModalAuth, userData, setUserData}}>
+		<AppContext.Provider value={{ isAuthenticated, setIsAuthenticated , isOpenModalAuth, setIsOpenModalAuth, userData, setUserData, isOpenSettings, setIsOpenSettings}}>
 			{children}
 		</AppContext.Provider>
 	);

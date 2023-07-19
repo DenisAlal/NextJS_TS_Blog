@@ -4,12 +4,14 @@ import React, {useContext, useState} from "react";
 import {AppContext} from "@/context/app.context";
 import Link from "next/link";
 import axios from "axios";
+import {useRouter} from "next/router";
 export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element => {
     const {setIsOpenModalAuth} = useContext(AppContext);
     const [activeTab, setActiveTab] = useState('login');
     const [emailLogin, setEmailLogin]= useState('');
     const [passwordLogin, setPasswordLogin]= useState('');
     const [errorLogin, setErrorLogin]= useState('');
+    const router = useRouter();
     function handleCloseClick() {
         setIsOpenModalAuth(false);
     }
@@ -23,8 +25,8 @@ export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element =>
         }).then(function(response) {
             const {token} = response.data.authorization;
             localStorage.setItem('jwtToken', token);
-
-
+            setIsOpenModalAuth(false);
+            router.push('/test');
         }).catch(function(error) {
             localStorage.setItem('jwtToken', '');
             setErrorLogin('Неправильно введен логин или пароль!');

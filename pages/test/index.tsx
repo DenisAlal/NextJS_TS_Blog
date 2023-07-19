@@ -2,7 +2,7 @@
 import React from 'react';
 import { withLayout } from '@/layout/Layout';
 
-function Course(): JSX.Element {
+function Test() {
 	return (
 		<>
 
@@ -10,5 +10,5 @@ function Course(): JSX.Element {
 	);
 }
 
-export default withLayout(Course);
+export default withLayout(Test);
 

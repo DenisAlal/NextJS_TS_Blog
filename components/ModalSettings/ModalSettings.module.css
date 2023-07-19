@@ -1,0 +1,183 @@
+.mwrapper {
+	width: 400px;
+
+}
+
+@media (width <= 765px) {
+	.mwrapper {
+		width: 400px;
+
+	}
+}
+
+@media (width <= 465px) {
+	.mwrapper {
+		width: 300px;
+	}
+}
+
+.modal {
+	background: white;
+	height:100%;
+	width:100%;
+	border-radius: 15px;
+	margin-top: 5px;
+	margin-right: 20px;
+	border:solid 2px rgb(90 63 255 / 66%);
+	box-shadow: 0 0 20px rgb(90 63 255 / 66%);
+
+	color: black;
+}
+
+.moverlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding-right: 25px;
+	justify-content: end;
+	align-items: start;
+
+	background-color: rgb(0 0 0 / 50%);
+}
+
+.mbody {
+	padding: 10px 10px 10px 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px
+}
+
+.mheader {
+	padding: 10px 15px 10px 10px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 20px;
+	align-items: center;
+}
+.mheader span{
+	font-size: 20px;
+}
+
+
+
+
+
+.tbutton {
+	background-color: #E8E8E8;
+	font-weight: 500;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 100ms ;
+	height: 40px;
+}
+
+.tbutton:hover {
+	background-color: rgb(90 63 255 / 66%);
+	color: white;
+
+}
+
+.active {
+	background-color: rgb(90 63 255 / 66%);
+	color: white;
+	height: 60px;
+	border-radius: 10px 10px 0 0 ;
+	font-weight: 600;
+}
+
+.login {
+	display: flex;
+	flex-direction: column;
+	color: white;
+	background-color: rgb(90 63 255 / 66%);
+	height: 80%;
+	border-radius: 0 10px 10px;
+	justify-content: center;
+	padding: 10px 25px;
+}
+
+.registration{
+	display: flex;
+	flex-direction: column;
+	color: white;
+	background-color: rgb(90 63 255 / 66%);
+	height: 80%;
+	justify-content: center;
+	padding: 0 25px;
+	border-radius: 10px 0 10px 10px;
+}
+
+.input {
+	display: flex;
+	flex-direction: column;
+}
+
+.input label {
+	margin-top: 10px;
+}
+
+.input input {
+	height: 40px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px solid rgb(196 186 253 / 66%);
+	display: block;
+	margin-top: 10px;
+	outline: none;
+	padding-left: 10px;
+}
+
+.input input:focus {
+	transition: 0.2s;
+	box-shadow: 0 0 20px var(--primary);
+}
+
+.buttonreg {
+	margin-top: 30px;
+}
+
+.signin,
+.buttonreg {
+	height: 40px;
+	font-size: 16px;
+	border: 1px solid rgb(196 186 253 / 66%);
+	border-radius: 5px;
+	background-color: white;
+	font-weight: bold;
+	color: var(--black)
+}
+
+.signin:hover,
+.buttonreg:hover {
+	transition: 0.2s;
+	background-color: #F0E8FF;
+	color: black;
+}
+
+.link {
+	margin: 10px 0 15px 10px;
+	display: flex;
+	justify-content: flex-end; /* Добавляем эту строчку для прижатия вправо */
+}
+
+.link link:hover {
+	color: #F0E8FF;
+}
+.error {
+	margin-bottom: 10px;
+	background: rgba(255, 113, 113, 0.76);
+	border: 1px solid rgba(241, 167, 167, 0.76);
+	border-radius: 10px;
+	text-align: center;
+	padding-block: 3px;
+}
+.divider {
+	height: 100%;
+	margin: 0 5px 0 5px;
+	border: 2px solid rgb(196 186 253 / 66%);
+}
