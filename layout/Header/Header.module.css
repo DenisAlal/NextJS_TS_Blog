@@ -1,0 +1,63 @@
+.header {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 10px 40px;
+	color: var(--white);
+	font-size: 16px;
+	line-height: 20px;
+	background: var(--primary);
+	padding: 10px 30px;
+
+}
+
+.logo {
+	padding: 10px;
+	justify-items: start;
+	font-size: 20px;
+}
+
+.logo:hover {
+	color: var(--gray-light);
+}
+
+
+
+.guest button {
+	font-size: 16px;
+	padding: 10px 15px;
+	color: var(--white);
+	border-radius: 12px;
+	border: 1px solid transparent;
+	background: transparent;
+}
+
+.user button {
+	width: 40px;
+	height:40px;
+	padding: 5px;
+	border-radius: 20px;
+	border: 1px solid transparent;
+	background: transparent;
+}
+
+.user svg {
+	fill: var(--white);
+}
+
+.user:hover svg{
+	fill: #CBCBCB;
+	transition: 0.4s;
+}
+
+.user:hover button {
+	transition: 0.4s;
+	color: var(--gray-light);
+	background: var(--primary-hover);
+}
+
+.guest:hover button {
+	transition: 0.4s;
+	color: var(--gray-light);
+	background: var(--primary-hover);
+	font-weight: 500;
+}

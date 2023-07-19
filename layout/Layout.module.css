@@ -1,0 +1,50 @@
+.wrapper {
+	display: grid;
+	grid-template:  "header header header" auto "sidebar body body " 1fr "footer footer footer" auto / 230px minmax(320px, 1600px) auto;
+	min-height: 100vh;
+	gap: 0 15px;
+}
+
+.header {
+	grid-area: header;
+	display: block;
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+
+.body {
+	grid-area: body;
+}
+
+.footer {
+	grid-area: footer;
+}
+
+@media (width <= 765px) {
+	.wrapper {
+		grid-template-columns: minmax(320px, 1fr);
+		grid-template-areas:
+			"header"
+			"body"
+			"footer";
+	}
+
+	.sidebar {
+		display: none;
+	}
+}
+
+.smooth {
+	opacity: 0;
+	animation: ani 0.5s forwards;
+}
+
+
+@keyframes ani {
+	0% {opacity: 0;}
+	50% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
