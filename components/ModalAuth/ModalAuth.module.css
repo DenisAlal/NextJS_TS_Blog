@@ -1,19 +1,19 @@
 .mwrapper {
 	width: 500px;
-	height: 600px;
+	height: 700px;
 }
 
 @media (width <= 765px) {
 	.mwrapper {
 		width: 400px;
-		height: 600px;
+		height: 700px;
 	}
 }
 
 @media (width <= 465px) {
 	.mwrapper {
 		width: 300px;
-		height: 600px;
+		height: 700px;
 	}
 }
 
@@ -90,7 +90,7 @@
 	flex-direction: column;
 	color: white;
 	background-color: rgb(90 63 255 / 66%);
-	height: 80%;
+	height: 81%;
 	border-radius: 0 10px 10px;
 	justify-content: center;
 	padding: 10px 25px;
@@ -101,7 +101,7 @@
 	flex-direction: column;
 	color: white;
 	background-color: rgb(90 63 255 / 66%);
-	height: 80%;
+	height: 84%;
 	justify-content: center;
 	padding: 0 25px;
 	border-radius: 10px 0 10px 10px;
@@ -134,6 +134,7 @@
 
 .buttonreg {
 	margin-top: 30px;
+	width: 100%;
 }
 
 .signin,
@@ -170,4 +171,23 @@
 	border-radius: 10px;
 	text-align: center;
 	padding-block: 3px;
+}
+.sucessAlert {
+	margin-bottom: 10px;
+	background: rgba(0, 253, 79, 0.66);
+	border: 1px solid rgba(96, 255, 122, 0.82);
+	border-radius: 10px;
+	text-align: center;
+	padding-block: 10px;
+}
+.mt {
+	margin-top: 20px;
+}
+.buttonregBack {
+	width: 90%;
+	margin: 10px;
+}
+.buttonregBack:hover {
+	background-color: rgb(237, 229, 255);
+
 }

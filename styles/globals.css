@@ -12,9 +12,7 @@ a {
 	color: inherit;
 }
 
-* {
-	box-sizing: border-box;
-}
+
 
 :root {
 	--black: #3B434E;

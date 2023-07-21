@@ -8,7 +8,7 @@ export default function AuthUser() {
 
     useEffect(() => {
         console.log(Object.entries(userData).length === 0, "dahgdghawhjdgawdhjaw")
-        if (Object.entries(userData).length === 0) {
+
             const jwtToken = localStorage.getItem('jwtToken');
             if (jwtToken) {
                 const fetchData = async () => {
@@ -30,7 +30,6 @@ export default function AuthUser() {
             } else {
                 router.push('/');
             }
-        }
 
     }, []);
 
