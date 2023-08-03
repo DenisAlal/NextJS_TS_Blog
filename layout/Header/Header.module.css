@@ -4,14 +4,11 @@
 	gap: 10px 40px;
 	color: var(--white);
 	font-size: 16px;
-	line-height: 20px;
 	background: var(--primary);
 	padding: 10px 30px;
-
 }
 
 .logo {
-	padding: 10px;
 	justify-items: start;
 	font-size: 20px;
 }
@@ -20,44 +17,61 @@
 	color: var(--gray-light);
 }
 
-
-
-.guest button {
+.guest {
+	height: 40px;
+	padding: 0 20px;
 	font-size: 16px;
-	padding: 10px 15px;
 	color: var(--white);
 	border-radius: 12px;
 	border: 1px solid transparent;
 	background: transparent;
 }
 
-.user button {
-	width: 40px;
-	height:40px;
-	padding: 5px;
-	border-radius: 20px;
-	border: 1px solid transparent;
+.guest:hover  {
+	transition: 0.4s;
+	color: #d5d5d5;
+	background: var(--primary-hover);
+}
+
+.menu,
+.settings{
 	background: transparent;
+	border: none;
+	height: 40px;
+	width: 40px;
+}
+.settings svg,
+.menu svg {
+	margin-left: 1px;
+	margin-top: 3px;
+}
+.menu:hover,
+.settings:hover{
+	background: var(--primary-hover);
+	border-radius: 30px;
+
+}
+.settings:hover svg circle,
+.settings:hover svg path,
+.menu:hover svg path{
+	transition: 0.2s;
+	fill: lightgray;
 }
 
-.user svg {
+@media (width >= 765px) {
+	.menu {
+		display: none;
+	}
+}
+
+
+
+.buttonsMenu {
+	gap: 10px;
+	display: flex;
+	flex-direction: row;
 	fill: var(--white);
+	align-items: center;
 }
 
-.user:hover svg{
-	fill: #CBCBCB;
-	transition: 0.4s;
-}
 
-.user:hover button {
-	transition: 0.4s;
-	color: var(--gray-light);
-	background: var(--primary-hover);
-}
-
-.guest:hover button {
-	transition: 0.4s;
-	color: var(--gray-light);
-	background: var(--primary-hover);
-	font-weight: 500;
-}

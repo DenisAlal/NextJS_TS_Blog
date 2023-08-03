@@ -1,16 +1,25 @@
 import {ModalAuthProps} from "@/components/ModalAuth/ModalAuth.props";
 import styles from './ModalSettings.module.css'
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {AppContext, UserData} from "@/context/app.context";
 import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/router";
 export const ModalSettings = ({children, className}: ModalAuthProps): JSX.Element => {
-    const {setIsOpenModalAuth, setIsOpenSettings, setUserData, setIsAuthenticated} = useContext(AppContext);
+    const {setIsOpenModalAuth, setIsOpenSettings,
+        setUserData, setIsAuthenticated, userData
+    } = useContext(AppContext);
+    const [admin , setAdmin] = useState(false)
     const router = useRouter();
     function handleCloseClick() {
         setIsOpenSettings(false);
     }
+
+    useEffect(() => {
+        if (Object.entries(userData).length !== 0) {
+            setAdmin(true);
+        }
+    }, [userData]);
     async function logout() {
 
         const jwtToken = localStorage.getItem('jwtToken');
@@ -38,7 +47,14 @@ export const ModalSettings = ({children, className}: ModalAuthProps): JSX.Elemen
             router.push('/');
         }
     }
-
+    function goAdmin() {
+        console.log(router.pathname)
+        if(router.pathname === '/admin') {
+            handleCloseClick();
+        } else {
+            router.push('/admin');
+        }
+    }
 
     return (
         <div className={styles.moverlay}>
@@ -54,8 +70,9 @@ export const ModalSettings = ({children, className}: ModalAuthProps): JSX.Elemen
                     <div className={styles.mbody}>
                         <button className={styles.tbutton}>12312</button>
                         <button className={styles.tbutton}>12312</button>
-                        <button className={styles.tbutton}>12312</button>
-                        <button className={styles.tbutton}>12312</button>
+                        {admin &&
+                            <button className={styles.tbutton} onClick={() => goAdmin()}>go admin</button>
+                        }
                         <button className={styles.tbutton} onClick={() => logout()}>Выйти</button>
                     </div>
                 </div>

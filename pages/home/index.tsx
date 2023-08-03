@@ -2,7 +2,7 @@
 import React from 'react';
 import { withLayout } from '@/layout/Layout';
 
-function Test() {
+function Home() {
 	return (
 		<>
 
@@ -10,5 +10,5 @@ function Test() {
 	);
 }
 
-export default withLayout(Test);
+export default withLayout(Home);
 

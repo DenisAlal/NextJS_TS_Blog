@@ -4,11 +4,8 @@ import {useRouter} from "next/router";
 import {AppContext} from "@/context/app.context";
 export default function AuthUser() {
     const router = useRouter();
-    const { setUserData, setIsAuthenticated, userData } = useContext(AppContext);
-
+    const { setUserData, setIsAuthenticated } = useContext(AppContext);
     useEffect(() => {
-        console.log(Object.entries(userData).length === 0, "dahgdghawhjdgawdhjaw")
-
             const jwtToken = localStorage.getItem('jwtToken');
             if (jwtToken) {
                 const fetchData = async () => {

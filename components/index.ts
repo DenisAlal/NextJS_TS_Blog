@@ -5,3 +5,4 @@ export * from './Tag/Tag';
 export * from './Rating/Rating';
 export * from './ModalAuth/ModalAuth';
 export * from './ModalSettings/ModalSettings';
+export * from './ModalMenu/ModalMenu';

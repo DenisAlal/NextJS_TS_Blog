@@ -4,10 +4,10 @@ import React, {useContext, useEffect, useState} from "react";
 import {AppContext} from "@/context/app.context";
 import Link from "next/link";
 import axios from "axios";
-import {useRouter} from "next/router";
 import cn from "classnames";
+import {useRouter} from "next/router";
 export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element => {
-    const {setIsOpenModalAuth} = useContext(AppContext);
+    const {setIsOpenModalAuth,userData} = useContext(AppContext);
     const [activeTab, setActiveTab] = useState('login');
     const [errorLogin, setErrorLogin]= useState('');
     const [errorRegister, setErrorRegister]= useState('');
@@ -23,6 +23,7 @@ export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element =>
         password: '',
         passwordCheck: ''
     });
+    const router = useRouter();
     function handleCloseClick() {
         setIsOpenModalAuth(false);
     }
@@ -46,9 +47,8 @@ export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element =>
             email: email,
             password: password
         }));
-        setSuccessRegister(true)
+        setSuccessRegister(true);
     };
-    const router = useRouter();
     async function login() {
         setErrorLogin('');
         console.log(process.env.NEXT_PUBLIC_DOMAIN);
@@ -60,7 +60,7 @@ export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element =>
             const {token} = response.data.authorization;
             localStorage.setItem('jwtToken', token);
             setIsOpenModalAuth(false);
-            router.push('/test');
+            router.push('/home');
         }).catch(function(error) {
             localStorage.setItem('jwtToken', '');
             setErrorLogin('Неправильно введен логин или пароль!');
