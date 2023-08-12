@@ -68,10 +68,10 @@
 	background-color: #E8E8E8;
 	font-weight: 500;
 	border: none;
-	padding: 10px 20px;
+	width: 100%;
 	border-radius: 10px;
 	cursor: pointer;
-	transition: 100ms ;
+	transition: 0.3s ease;
 	height: 40px;
 }
 
@@ -80,13 +80,12 @@
 	color: white;
 
 }
-
 .active {
 	background-color: rgb(90 63 255 / 66%);
 	color: white;
-	height: 60px;
-	border-radius: 10px 10px 0 0 ;
-	font-weight: 600;
+}
+.sidebarButtons > .tbutton {
+	margin-top: 10px;
 }
 
 .login {

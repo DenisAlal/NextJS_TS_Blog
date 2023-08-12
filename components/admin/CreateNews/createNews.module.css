@@ -1,0 +1,43 @@
+
+.tagTitle {
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+}
+
+.textTest {
+	font-size: 40px;
+}
+
+.newsName {
+	border: none;
+	border-radius: 20px;
+	height: 30px;
+	padding: 0 10px 0 10px ;
+	margin-top: 5px;
+	width: 500px;
+}
+
+@media (width <= 765px) {
+	.newsName{
+		width: 95%;
+	}
+	.main {
+		text-align: center;
+		vertical-align: middle;
+	}
+
+
+}
+
+.newsName:focus {
+	border: 1px solid var(--primary);
+	box-shadow: 0 0 3px var(--primary);
+	outline-offset: 0;
+	outline: none;
+
+}

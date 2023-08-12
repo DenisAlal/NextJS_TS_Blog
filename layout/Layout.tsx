@@ -8,14 +8,17 @@ import {AppContext, AppContextProvider, AppContextType} from '@/context/app.cont
 import {ModalAuth, ModalMenu, ModalSettings} from "@/components";
 import AuthUser from "@/utils/auth";
 import {useRouter} from "next/router";
+import {UserContext, UserContextProvider} from "@/context/user.context";
 
 const Layout = ({children}: LayoutProps): JSX.Element => {
     const router = useRouter();
     const [auth, setAuth] = useState<boolean>(false);
+    const { usingTab, setUsingTab } = useContext(UserContext);
     const {isOpenModalAuth, isOpenSettings, userData, isOpenMenu} = useContext(AppContext);
     const [openModal, setOpenModal] = useState<boolean>(false);
     const [openModalSettings, setOpenModalSettings] = useState<boolean>(false);
     const [openModalMenu, setOpenModalMenu] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         if (isOpenModalAuth) {
             setOpenModal(true);
@@ -57,12 +60,8 @@ const Layout = ({children}: LayoutProps): JSX.Element => {
                 </svg>
             </Header>
             {auth &&
-                <Sidebar className={styles.sidebar}>
-                    <button>Создать новость</button>
-                    <button>Редактировать новость</button>
-                </Sidebar>
+                <Sidebar className={styles.sidebar}/>
             }
-
             <AuthUser/>
             <div className={styles.body}>
                 {children}
@@ -92,9 +91,11 @@ export const withLayout = <T extends Record<string, unknown> & AppContextType>(C
     return function withLayoutComponent(props: T): JSX.Element {
         return (
             <AppContextProvider>
-                <Layout>
-                    <Component {...props} />
-                </Layout>
+                <UserContextProvider>
+                    <Layout>
+                        <Component {...props} />
+                    </Layout>
+                </UserContextProvider>
             </AppContextProvider>
         );
     };

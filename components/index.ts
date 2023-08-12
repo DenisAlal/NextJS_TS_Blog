@@ -6,3 +6,5 @@ export * from './Rating/Rating';
 export * from './ModalAuth/ModalAuth';
 export * from './ModalSettings/ModalSettings';
 export * from './ModalMenu/ModalMenu';
+export * from '@/components/admin/CreateNews/CreateNews';
+export * from '@/components/admin/EditNews/EditNews';

@@ -9,11 +9,9 @@ import {useRouter} from "next/router";
 
 export const Header = ({className, children, ...props}: HeaderProps): JSX.Element => {
     const {isAuthenticated, setIsOpenModalAuth, setIsOpenSettings, setIsOpenMenu} = useContext(AppContext);
-    const [auth, setAuth] = useState<boolean>(false);
+
     const router = useRouter();
-    useEffect(() => {
-        setAuth(isAuthenticated);
-    }, [isAuthenticated]);
+
     const handleOpenClick = (typeUser: string) => {
         if (typeUser === "guest") {
             setIsOpenModalAuth(true);
@@ -39,7 +37,7 @@ export const Header = ({className, children, ...props}: HeaderProps): JSX.Elemen
         <div className={cn(className, styles.header)}>
             <div className={styles.logo} onClick={goHome}>{children}</div>
             <div>
-                {!auth ?
+                {!isAuthenticated ?
                     <div className={styles.buttonsMenu}>
                         <button onClick={() => handleOpenClick("guest")} className={styles.guest}>Войти</button>
                     </div>

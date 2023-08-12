@@ -164,30 +164,35 @@
 .link link:hover {
 	color: #F0E8FF;
 }
+
 .error {
 	margin-bottom: 10px;
-	background: rgba(255, 113, 113, 0.76);
-	border: 1px solid rgba(241, 167, 167, 0.76);
+	background: rgb(255 113 113 / 76%);
+	border: 1px solid rgb(241 167 167 / 76%);
 	border-radius: 10px;
 	text-align: center;
 	padding-block: 3px;
 }
+
 .sucessAlert {
 	margin-bottom: 10px;
-	background: rgba(0, 253, 79, 0.66);
-	border: 1px solid rgba(96, 255, 122, 0.82);
+	background: rgb(0 253 79 / 66%);
+	border: 1px solid rgb(96 255 122 / 82%);
 	border-radius: 10px;
 	text-align: center;
 	padding-block: 10px;
 }
+
 .mt {
 	margin-top: 20px;
 }
+
 .buttonregBack {
 	width: 90%;
 	margin: 10px;
 }
+
 .buttonregBack:hover {
-	background-color: rgb(237, 229, 255);
+	background-color: rgb(237 229 255);
 
 }

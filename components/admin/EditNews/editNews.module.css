@@ -1,0 +1,15 @@
+
+.main {
+	font-size: 100px;
+}
+.tagTitle {
+	margin-top: 30px;
+}
+.main {
+	display: flex;
+	flex-direction: column;
+}
+
+.textTest {
+	font-size: 40px;
+}
