@@ -7,10 +7,12 @@ import {useRouter} from "next/router";
 import {UserContext} from "@/context/user.context";
 import CreateNews from "@/components/admin/CreateNews/CreateNews";
 import EditNews from "@/components/admin/EditNews/EditNews";
+import AddType from "@/components/admin/AddType/AddType";
 
 function Admin() {
     const { userData } = useContext(AppContext);
     const { usingTab } = useContext(UserContext);
+
     const router = useRouter();
     useEffect(() => {
         if (Object.entries(userData).length !== 0) {
@@ -26,6 +28,8 @@ function Admin() {
                 return <CreateNews/>;
             case 'EditNews':
                 return <EditNews/>;
+            case 'AddType':
+                return <AddType/>;
             default:
                 return null;
         }
@@ -35,6 +39,7 @@ function Admin() {
            <span className={styles.aboba}>
                 {usingTab && renderTextComponent()}
            </span>
+
         </>
     );
 }

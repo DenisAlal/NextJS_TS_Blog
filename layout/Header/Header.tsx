@@ -5,10 +5,12 @@ import React, {useContext, useEffect, useState} from "react";
 import {AppContext} from "@/context/app.context";
 import {func} from "prop-types";
 import {useRouter} from "next/router";
+import {UserContext} from "@/context/user.context";
 
 
 export const Header = ({className, children, ...props}: HeaderProps): JSX.Element => {
-    const {isAuthenticated, setIsOpenModalAuth, setIsOpenSettings, setIsOpenMenu} = useContext(AppContext);
+    const {isAuthenticated, setIsOpenModalAuth,
+        setIsOpenSettings, setIsOpenMenu} = useContext(AppContext);
 
     const router = useRouter();
 

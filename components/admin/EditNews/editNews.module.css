@@ -1,15 +1,55 @@
 
-.main {
-	font-size: 100px;
+
+.block {
+    margin-right: 10px;
 }
-.tagTitle {
-	margin-top: 30px;
-}
-.main {
-	display: flex;
-	flex-direction: column;
+.data_name {
+
+    line-height: 40px;
+    margin-top: 20px;
+    background: rgba(118, 83, 252, 0.71);
+    border-radius: 20px 20px 0 0 ;
+    padding: 0 10px 0 10px;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
 }
 
-.textTest {
-	font-size: 40px;
+.data_name_edit {
+    line-height: 40px;
+    margin-top: 20px;
+    background: rgba(118, 83, 252, 0.71);
+    border-radius: 20px 20px 0 0 ;
+    padding: 0 10px 0 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.content {
+    border: 1px solid rgba(118, 83, 252, 0.71);
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 5px;
+}
+.content button {
+    background-color: rgba(118, 83, 252, 0.17);
+    border: none;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    height: 40px;
+    font-weight: bolder;
+    padding: 0 10px 0 10px;
+}
+
+
+.content button:hover {
+    background-color: rgb(90 63 255 / 66%);
+    color: white;
+    transition: 0.2s;
+}
+.tagTitle {
+    margin-top: 30px;
 }

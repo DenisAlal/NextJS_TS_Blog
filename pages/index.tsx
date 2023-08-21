@@ -2,10 +2,14 @@ import React, {useContext, useEffect, useState} from 'react';
 import { Button, Htag, P, Rating, Tag } from '@/components';
 import { withLayout } from '@/layout/Layout';
 import { AppContext } from "@/context/app.context";
+import axios from "axios";
+import {BlogData} from "@/interfaces/blogData.interface";
+import parse from "html-react-parser";
 function Home(): JSX.Element {
 	const [rating, setRating] = useState<number>(4);
 	const [userDataIndex, setUserDataIndex] = useState('');
 	const { isAuthenticated, setIsAuthenticated, userData } = useContext(AppContext);
+
 	const handleLogin = () => {
 		setIsAuthenticated(true);
 	};
@@ -21,6 +25,8 @@ function Home(): JSX.Element {
 			setUserDataIndex(userData.user.name);
 		}
 	},[userData]);
+
+
 	return (
 		<>
 			<Htag tag='h1'>Заголовок</Htag>
@@ -41,6 +47,8 @@ function Home(): JSX.Element {
 			<Tag color='primary'>Green</Tag>
 			<Rating rating={rating} isEditable setRating={setRating} />
 			<div>{userDataIndex}</div>
+
+
 		</>
 	);
 }
