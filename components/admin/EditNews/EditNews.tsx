@@ -44,6 +44,7 @@ function EditNews() {
             console.log(error);
         });
     }
+
     function handleClose() {
         setData([]);
         setEditMode(null)
@@ -96,25 +97,28 @@ function EditNews() {
                                         value={cardName}
                                         onChange={(event) => setCardName(event.target.value)}
                                     />
+
                                     <p>Введите содержание новости</p>
-                                    <Editor
-                                        onInit={(evt, editor) => editorRef.current = Number(editor)}
-                                        id="editor"
-                                        value={cardData}
-                                        onEditorChange={setCardData}
-                                        init={{
-                                            height: 500,
-                                            menubar: true,
-                                            plugins: [
-                                                'link', 'wordcount'
-                                            ],
-                                            toolbar: 'undo redo | formatselect | ' +
-                                                'bold italic backcolor | alignleft aligncenter ' +
-                                                'alignright alignjustify | bullist numlist outdent indent | ' +
-                                                'removeformat | help | link | fontsize ',
-                                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-                                        }}
-                                    />
+                                    <div className={styles.editor}>
+                                        <Editor
+                                            onInit={(evt, editor) => editorRef.current = Number(editor)}
+                                            id="editor"
+                                            value={cardData}
+                                            onEditorChange={setCardData}
+                                            init={{
+                                                height: 500,
+                                                menubar: true,
+                                                plugins: [
+                                                    'link', 'wordcount'
+                                                ],
+                                                toolbar: 'undo redo | formatselect | ' +
+                                                    'bold italic backcolor | alignleft aligncenter ' +
+                                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                                    'removeformat | help | link | fontsize ',
+                                                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                            }}
+                                        />
+                                    </div>
 
                                     <button onClick={() => handleSave(item.id)}>Сохранить</button>
                                     <button onClick={() => handleClose()}>Отменить</button>

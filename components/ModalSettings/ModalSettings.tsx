@@ -2,7 +2,6 @@ import {ModalAuthProps} from "@/components/ModalAuth/ModalAuth.props";
 import styles from './ModalSettings.module.css'
 import React, {useContext, useEffect, useState} from "react";
 import {AppContext, UserData} from "@/context/app.context";
-import Link from "next/link";
 import axios from "axios";
 import {useRouter} from "next/router";
 export const ModalSettings = ({children, className}: ModalAuthProps): JSX.Element => {
@@ -17,8 +16,15 @@ export const ModalSettings = ({children, className}: ModalAuthProps): JSX.Elemen
 
     useEffect(() => {
         if (Object.entries(userData).length !== 0) {
-            setAdmin(true);
+            const typeUser = userData.user.role;
+            console.log(typeUser)
+            if (typeUser === "user") {
+               setAdmin(false);
+            } else {
+                setAdmin(true);
+            }
         }
+
     }, [userData]);
     async function logout() {
 

@@ -66,3 +66,6 @@
 	color: white;
 	transition: 0.2s;
 }
+.editor {
+	z-index: 0;
+}

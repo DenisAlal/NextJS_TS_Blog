@@ -31,6 +31,7 @@ function AddType() {
                 <input className={styles.newsName} value={blogTypeName}
                        onChange={(event) => setBlogTypeName(event.target.value)}/>
                 <P size="m">О чем данная тема?</P>
+                <div className={styles.editor}>
                 <Editor
                     onInit={(evt, editor) => editorRef.current = Number(editor)}
                     id="editor"
@@ -49,6 +50,7 @@ function AddType() {
                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                     }}
                 />
+                </div>
                 <button onClick={() => sendData()}>Создать</button>
 
             </div>

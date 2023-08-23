@@ -12,47 +12,36 @@ import {UserContextProvider} from "@/context/user.context";
 
 const Layout = ({children}: LayoutProps): JSX.Element => {
     const router = useRouter();
-    const [auth, setAuth] = useState<boolean>(false);
+    const [admin, setAdmin] = useState<boolean>(false);
     const [userMenu, setUserMenu] = useState<boolean>(false);
     const {isOpenModalAuth, isOpenSettings, userData, isOpenMenu} = useContext(AppContext);
-    const [openModal, setOpenModal] = useState<boolean>(false);
-    const [openModalSettings, setOpenModalSettings] = useState<boolean>(false);
-    const [openModalMenu, setOpenModalMenu] = useState<boolean>(false);
-    useEffect(() => {
-        if (isOpenModalAuth) {
-            setOpenModal(true);
-        } else {
-            setOpenModal(false);
-        }
-    }, [isOpenModalAuth]);
-    useEffect(() => {
-        if (isOpenMenu) {
-            setOpenModalMenu(true);
-        } else {
-            setOpenModalMenu(false);
-        }
 
-    }, [isOpenMenu]);
-    useEffect(() => {
-        if (isOpenSettings) {
-            setOpenModalSettings(true);
-        } else {
-            setOpenModalSettings(false);
-        }
-    }, [isOpenSettings]);
     useEffect(() => {
         if (router.pathname === "/admin") {
             if (Object.entries(userData).length !== 0) {
                 const typeUser = userData.user.role;
                 if (typeUser !== "admin") {
-                    router.push('/');
+                    if(typeUser !== "user") {
+                        router.push('/');
+                    }
+                    router.push('/home')
                 } else {
-                    setAuth(true);
+                    setAdmin(true);
 
                 }
             }
         } else if (router.pathname === "/home") {
             setUserMenu(true);
+            if (Object.entries(userData).length !== 0) {
+                const typeUser = userData.user.role;
+                console.log(typeUser)
+                if (typeUser !== "user" ) {
+                    router.push('/');
+                } else {
+                    setUserMenu(true);
+
+                }
+            }
         }
     }, [router, userData]);
 
@@ -66,7 +55,7 @@ const Layout = ({children}: LayoutProps): JSX.Element => {
                         stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             </Header>
-            {auth &&
+            {admin &&
                 <Sidebar className={styles.sidebar} typeSidebar="admin"/>
             }
             {userMenu &&
@@ -77,17 +66,17 @@ const Layout = ({children}: LayoutProps): JSX.Element => {
                 {children}
             </div>
             <Footer className={styles.footer}/>
-            {openModal &&
+            {isOpenModalAuth &&
                 <div className={styles.smooth}>
                     <ModalAuth/>
                 </div>
             }
-            {openModalSettings &&
+            {isOpenSettings &&
                 <div className={styles.smooth}>
                     <ModalSettings/>
                 </div>
             }
-            {openModalMenu &&
+            {isOpenMenu &&
                 <div className={styles.smooth}>
                     <ModalMenu/>
                 </div>

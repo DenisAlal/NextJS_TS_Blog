@@ -20,7 +20,7 @@ function CreateNews() {
             blog_data: cardData,
             image_id: null,
             video_id: null,
-            blog_type_id:blogTypeId
+            blog_type_id: blogTypeId
         }).then(function (response) {
             setBlogTypeId(1);
             setCardData("");
@@ -30,6 +30,7 @@ function CreateNews() {
             console.log(error);
         });
     }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -51,24 +52,27 @@ function CreateNews() {
                 <input className={styles.newsName} value={cardName}
                        onChange={(event) => setCardName(event.target.value)}/>
                 <P size="m">Введите содержание новости</P>
-                <Editor
-                    onInit={(evt, editor) => editorRef.current = Number(editor)}
-                    id="editor"
-                    value={cardData}
-                    onEditorChange={setCardData}
-                    init={{
-                        height: 500,
-                        menubar: true,
-                        plugins: [
-                            'link', 'wordcount'
-                        ],
-                        toolbar: 'undo redo | formatselect | ' +
-                            'bold italic backcolor | alignleft aligncenter ' +
-                            'alignright alignjustify | bullist numlist outdent indent | ' +
-                            'removeformat | help | link | fontsize ',
-                        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-                    }}
-                />
+                <div className={styles.editor}>
+                    <Editor
+                        onInit={(evt, editor) => editorRef.current = Number(editor)}
+                        id="editor"
+                        value={cardData}
+                        onEditorChange={setCardData}
+                        init={{
+
+                            height: 500,
+                            menubar: true,
+                            plugins: [
+                                'link', 'wordcount'
+                            ],
+                            toolbar: 'undo redo | formatselect | ' +
+                                'bold italic backcolor | alignleft aligncenter ' +
+                                'alignright alignjustify | bullist numlist outdent indent | ' +
+                                'removeformat | help | link | fontsize ',
+                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                        }}
+                    />
+                </div>
 
                 <select onChange={(e) => setBlogTypeId(parseInt(e.target.value))}>
                     {blogType.map((item) => (

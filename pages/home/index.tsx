@@ -75,7 +75,6 @@ function Home() {
     };
 
     function checkDisabled(userButton: boolean) {
-        console.log(userButton)
         return userButton;
     }
 
