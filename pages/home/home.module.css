@@ -20,3 +20,25 @@
     border-radius: 0 0 10px 10px;
     margin-bottom: 5px;
 }
+
+.like {
+    border-radius: 10px 0 0 10px;
+    border: solid 0.01em ;
+}
+.like:disabled {
+    border: solid 0.01em green;
+}
+.activelike svg {
+    fill: #008000FF;
+}
+.dislike{
+    border-radius: 0 10px 10px 0;
+    border: solid 0.01em ;
+}
+.dislike:disabled {
+    border: solid 0.01em red;
+}
+
+.activedislike svg {
+    fill: #fa4b4b;
+}
