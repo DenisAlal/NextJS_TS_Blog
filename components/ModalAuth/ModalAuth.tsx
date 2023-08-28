@@ -6,6 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import cn from "classnames";
 import {useRouter} from "next/router";
+import {LoadContext} from "@/context/load.context";
 export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element => {
     const {setIsOpenModalAuth,userData} = useContext(AppContext);
     const [activeTab, setActiveTab] = useState('login');
@@ -24,6 +25,7 @@ export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element =>
         passwordCheck: ''
     });
     const router = useRouter();
+    const {setIsLoading} = useContext(LoadContext)
     function handleCloseClick() {
         setIsOpenModalAuth(false);
     }
@@ -60,6 +62,7 @@ export const ModalAuth = ({children, className}: ModalAuthProps): JSX.Element =>
             const {token} = response.data.authorization;
             localStorage.setItem('jwtToken', token);
             setIsOpenModalAuth(false);
+            setIsLoading(true);
             router.push('/home');
         }).catch(function(error) {
             localStorage.setItem('jwtToken', '');

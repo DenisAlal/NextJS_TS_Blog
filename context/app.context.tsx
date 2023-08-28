@@ -21,8 +21,6 @@ export type AppContextType = {
 	setUserData: React.Dispatch<React.SetStateAction<UserData>>;
 	isOpenMenu: boolean;
 	setIsOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
-	isLoading: boolean;
-	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<AppContextType>({
@@ -35,9 +33,7 @@ export const AppContext = createContext<AppContextType>({
 	isOpenSettings:  false,
 	setIsOpenSettings: () => {},
 	isOpenMenu:  false,
-	setIsOpenMenu: () => {},
-	isLoading: false,
-	setIsLoading: () => {}
+	setIsOpenMenu: () => {}
 });
 
 type AppContextProviderProps = {
@@ -50,9 +46,8 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 	const [isOpenSettings, setIsOpenSettings] = useState(false);
 	const [userData, setUserData] = useState<UserData>({} as UserData);
 	const [isOpenMenu, setIsOpenMenu] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
 	return (
-		<AppContext.Provider value={{ isAuthenticated, setIsAuthenticated , isOpenModalAuth, setIsOpenModalAuth, userData, setUserData, isOpenSettings, setIsOpenSettings, isOpenMenu, setIsOpenMenu, isLoading, setIsLoading}}>
+		<AppContext.Provider value={{ isAuthenticated, setIsAuthenticated , isOpenModalAuth, setIsOpenModalAuth, userData, setUserData, isOpenSettings, setIsOpenSettings, isOpenMenu, setIsOpenMenu}}>
 			{children}
 		</AppContext.Provider>
 	);

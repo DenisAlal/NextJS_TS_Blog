@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import styles from './createNews.module.css';
 import {P,} from "@/components";
 import {Editor} from '@tinymce/tinymce-react';
@@ -12,7 +12,6 @@ function CreateNews() {
 
     const [blogType, setBlogType] = useState<BlogType[]>([]);
     const [blogTypeId, setBlogTypeId] = useState(1);
-
     async function sendData() {
         console.log(blogTypeId)
         axios.post(process.env.NEXT_PUBLIC_DOMAIN + 'data', {
@@ -21,11 +20,10 @@ function CreateNews() {
             image_id: null,
             video_id: null,
             blog_type_id: blogTypeId
-        }).then(function (response) {
+        }).then(function () {
             setBlogTypeId(1);
             setCardData("");
             setCardName("");
-            console.log(response.data);
         }).catch(function (error) {
             console.log(error);
         });
@@ -36,6 +34,7 @@ function CreateNews() {
             try {
                 const response = await axios.get<BlogType[]>(process.env.NEXT_PUBLIC_DOMAIN + 'blogType');
                 setBlogType(response.data);
+
             } catch (error) {
                 console.error('Ошибка при получении данных:', error);
             }

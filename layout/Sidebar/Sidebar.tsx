@@ -4,24 +4,20 @@ import {UserContext} from "@/context/user.context";
 import styles from "./Sidebar.module.css";
 import axios from "axios";
 import {BlogType} from "@/interfaces/blogType.interface";
-import {AppContext} from "@/context/app.context";
+import {LoadContext} from "@/context/load.context";
 
 
 export const Sidebar = ({typeSidebar, ...props}: SidebarProps): JSX.Element => {
     const {usingTab, setUsingTab, userTab, setUserTab} = useContext(UserContext);
-    const {isLoading, setIsLoading}=useContext(AppContext)
     const [blogType, setBlogType] = useState<BlogType[]>([]);
 
+    const {isLoading, setIsLoading} = useContext(LoadContext);
     useEffect(() => {
-        setIsLoading(true)
-        const fetchData = async () => {
+        const fetchData = async () => {``
             try {
                 const response = await axios.get<BlogType[]>(process.env.NEXT_PUBLIC_DOMAIN + 'blogType');
-                const data = response.data;
-                if (data) {
-                    setIsLoading(true);
-                }
                 setBlogType(response.data);
+                setIsLoading(false)
             } catch (error) {
                 console.error('Ошибка при получении данных:', error);
             }
